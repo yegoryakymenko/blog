@@ -3,15 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
+    "babel-plugin-styled-components": "^1.5.0",
+    "lodash": "^4.17.11",
+    "mobx": "^3.5.1",
+    "mobx-react": "^4.4.1",
+    "normalize.css": "^8.0.1",
+    "prettier": "^1.10.2",
+    "react": "^16.2.0",
+    "react-app-rewire-mobx": "^1.0.7",
+    "react-app-rewired": "^1.4.1",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.3.1",
+    "react-scripts": "1.1.1",
+    "styled-components": "^3.1.6",
+    "stylus": "^0.54.5",
+    "stylus-in-react": "^2.0.1",
+    "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build-css": "stylus -c src/assets/style/app.styl",
+    "watch-css": "npm run build-css && stylus -c -w src/assets/style/app.styl",
+    "start-js": "react-app-rewired start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test --env=jsdom",
+    "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -21,5 +37,12 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "babel-plugin-transform-decorators": "^6.24.1",
+    "npm-run-all": "^4.1.5",
+    "react-router-dom": "^4.3.1",
+    "stylus-loader": "^3.0.2",
+    "uuid": "^3.3.2"
+  }
 }
