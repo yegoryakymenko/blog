@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PostsList from "./components/PostsList";
 import uuid from "uuid";
 import "./assets/style/app.css";
-import { totalmem } from "os";
 
 class App extends Component {
   constructor(props) {
@@ -25,16 +24,17 @@ class App extends Component {
       .then(result => result.json())
       .then(users => {
         this.setState({ users: users, isLoaded: true });
-        // console.log(this.state.items[0].name);
+        console.log("Users is loaded" + " ", users.length);
+        users.length ? this.getPosts() : this.getUsers();
       })
-      .then(this.getPosts());
+      .then();
   }
   getPosts() {
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then(result => result.json())
       .then(posts => {
         this.setState({ posts: posts, isLoaded: true });
-        console.log(this.state.posts);
+        console.log("posts is loaded");
         this.renderPost();
       });
   }
@@ -44,11 +44,11 @@ class App extends Component {
       let id = i * 10 + count;
       return (
         <li key={uuid.v4()}>
-          <p>{item.name}</p>
-          <li key={uuid.v4()}>{posts[id]["title"]}</li>
+          <h2 className="blogBlock-userName">{item.name}</h2>
+          <h3 className="blogBlock-title">{posts[id].title}</h3>
+          <p>{posts[id].body}</p>
         </li>
       );
-      console.log(id);
     });
     return this.setState({ jsxCode: postId });
   }

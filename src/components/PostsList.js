@@ -6,7 +6,7 @@ class PostsList extends Component {
     const { users, isLoaded, count, posts, jsxCode } = this.props;
     return (
       <div className="App">
-        <ul>{this.props.jsxCode}</ul>
+        <ul className="blogBlock">{this.props.jsxCode}</ul>
       </div>
     );
   }
