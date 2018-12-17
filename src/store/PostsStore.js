@@ -5,6 +5,7 @@ class PostsStore {
   @observable userId = 1;
   @observable count = 0;
   @observable posts = null;
+  @observable comments = null;
 
   @action setUsers(users) {
     this.users = users;
@@ -20,6 +21,9 @@ class PostsStore {
     console.log(userId, "oo");
 
     this.userId = userId;
+  }
+  @action setComments(comments) {
+    this.comments = comments;
   }
 }
 

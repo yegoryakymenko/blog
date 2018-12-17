@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import { Link } from "react-router-dom";
 import PostsStore from "../store/PostsStore";
+import "../assets/style/app.css";
 import uuid from "uuid";
 
 @inject("PostsStore")
@@ -16,25 +17,24 @@ class UsersPosts extends Component {
     if (!users || !posts) return <h1>No users or posts</h1>;
     console.log("userid : ", this.userId);
     let userName = users.map(user => {
-      console.log(user);
-      if (user.id === userId) {
-        console.log(user["name"]);
-        return <h2>{user.name}</h2>;
+      if(this.props.match.params.id == user.id) {
+        return user.name;
       }
     });
     let userPosts = posts.map(item => {
       return (
         <li key={uuid.v4()}>
-          <h2>{this.props.match.params.id}</h2>
+          <h2>{userName}</h2>
           <h3 className="blogBlock-title">{item.title}</h3>
           <h3 className="blogBlock-userName">{item.body}</h3>
+          <h4>{item.comments}</h4>
         </li>
       );
     });
 
     return (
       <React.Fragment>
-        <ul>{userPosts}</ul>
+        <ul className="blogBlock">{userPosts}</ul>
       </React.Fragment>
     );
   }
