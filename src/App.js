@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PostsList from "./components/PostsList";
 import uuid from "uuid";
 import "./assets/style/app.css";
-import { totalmem } from "os";
 
 class App extends Component {
   constructor(props) {
@@ -39,13 +38,13 @@ class App extends Component {
       });
   }
   renderPost() {
-    const { users, posts, isLoaded, count } = this.state;
+    const { users, posts, count } = this.state;
     let postId = users.map((item, i) => {
       let id = i * 10 + count;
       return (
         <li key={uuid.v4()}>
           <p>{item.name}</p>
-          <li key={uuid.v4()}>{posts[id]["title"]}</li>
+          <li key={uuid.v4()}>{posts[id].body}</li>
         </li>
       );
       console.log(id);
@@ -56,11 +55,7 @@ class App extends Component {
   render() {
     return (
       <PostsList
-        users={this.state.users}
-        posts={this.state.posts}
-        isLoaded={this.state.isLoaded}
-        count={this.state.count}
-        renderPost={this.renderPost}
+
         jsxCode={this.state.jsxCode}
       />
     );

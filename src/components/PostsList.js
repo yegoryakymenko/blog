@@ -3,10 +3,10 @@ import uuid from "uuid";
 
 class PostsList extends Component {
   render() {
-    const { users, isLoaded, count, posts, jsxCode } = this.props;
+    const { jsxCode } = this.props;
     return (
       <div className="App">
-        <ul>{this.props.jsxCode}</ul>
+        <ul>{jsxCode}</ul>
       </div>
     );
   }
