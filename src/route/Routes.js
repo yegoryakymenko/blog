@@ -9,6 +9,7 @@ import PostsStore from "../store/PostsStore";
 import { Provider } from "mobx-react";
 import PostsList from "../components/PostsList";
 import UsersPosts from "../components/UsersPosts";
+import SinglePost from "../components/SinglePost";
 
 class Routes extends Component {
   render() {
@@ -18,6 +19,7 @@ class Routes extends Component {
           <Switch>
             <Route path="/posts" component={PostsList} />
             <Route path="/user/:id" component={UsersPosts} />
+            <Route path="/post/:id" component={SinglePost} />
             {/*<Route path="/user/:id" component={UsersPosts} />let userUrl = "users/"+2*/}
             <Redirect to="posts" />
           </Switch>

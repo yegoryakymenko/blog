@@ -22,7 +22,7 @@ export const getComments = () => {
     .then(result => result.json())
     .then(comments => {
       store.setComments(comments);
-      console.log(comments)
-      return comments;
+      // console.log(comments)
+      // return comments;
     });
 };

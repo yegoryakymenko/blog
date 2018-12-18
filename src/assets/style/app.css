@@ -1,1 +1,1 @@
-.blogBlock{list-style-type:none}
+.blogBlock{list-style-type:none;padding-left:20px;padding-right:20px;}.blogBlock .blogBlock-li{padding:10px;margin-top:10px;border:1px solid #008000;border-radius:4px;}.blogBlock .blogBlock-li .blogBlock-userName{font-size:22px}.blogBlock .blogBlock-li .blogBlock-title{font-size:19px;color:#175}.blogBlock .blogBlock-li .blogBlock-title:first-letter{text-transform:uppercase}.blogBlock .blogBlock-li .blogBlock-body{font-size:15px}.blogBlock .blogBlock-li .blogBlock-email{font-size:17px}.commentsBlock{margin-left:50px}

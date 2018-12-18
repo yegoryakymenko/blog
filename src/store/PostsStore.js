@@ -3,7 +3,7 @@ import { observable, observer, action } from "mobx";
 class PostsStore {
   @observable users = null;
   @observable userId = 1;
-  @observable count = 0;
+
   @observable posts = null;
   @observable comments = null;
 
@@ -13,9 +13,6 @@ class PostsStore {
   @action setPosts(posts) {
     this.posts = posts;
   }
-  @action setCount(count) {
-    this.count = count;
-  }
 
   @action setUserId(userId) {
     console.log(userId, "oo");
@@ -23,6 +20,7 @@ class PostsStore {
     this.userId = userId;
   }
   @action setComments(comments) {
+    // console.log(comments, "comments");
     this.comments = comments;
   }
 }
